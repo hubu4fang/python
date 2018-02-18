@@ -8,7 +8,6 @@ def coupon_creator(digit):
     
 def two_hundred_coupons():
     data=''
-    count=1
     for count in range(200):
         digit=12
         count+=1
