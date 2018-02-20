@@ -3,12 +3,12 @@ import re
 fin=open("example.txt","r")
 fout=open("result.txt","w")
 str=fin.read()
-#Æ¥ÅäÕıÔò±í´ïÊ½
+#åŒ¹é…æ­£åˆ™è¡¨è¾¾å¼
 reObj=re.compile("\b?([a-zA-Z]+)\b?")
 words=reObj.findall(str)
-#½¨Á¢¿Õ×Öµä
+#å»ºç«‹ç©ºå­—å…¸
 word_dict={}
-#ÒÔµ¥´ÊµÄĞ¡Ğ´×÷Îª¼üÖµ½øĞĞÍ³¼Æ£¬Í¬Ê±Òª
+#ä»¥å•è¯çš„å°å†™ä½œä¸ºé”®å€¼è¿›è¡Œç»Ÿè®¡ï¼ŒåŒæ—¶è¦
 for word in words:
     if(word_dict.has_key(word)):
         word_dict[word.lower()]=max(word_dict[word.lower()],words.count(word.lower())+words.count(word.upper())+words.count(word))
@@ -16,4 +16,5 @@ for word in words:
         word_dict[word.lower()]=max(0,words.count(word.lower())+words.count(word.upper())+words.count(word))       
 for(word,number) in word_dict.items():
     fout.write(word+":%d\n"%number)
-    
+fin.close()
+fout.close()  
